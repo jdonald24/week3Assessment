@@ -16,6 +16,20 @@ import javax.persistence.Table;
 public class MarchingBand {
 	@Id
 	@GeneratedValue
+	@Column(name="ID")
+	private int id;
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	@Column(name="MovementNum")
 	private int numOfMovements;
 	@Column(name ="MarcherNum")

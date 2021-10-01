@@ -76,14 +76,11 @@ public class startProgram {
 		MarchingBand toEdit = new MarchingBand();
 		System.out.println("Enter the show name");
 		String showName = input.nextLine();
-		List <MarchingBand> foundBands;
-		foundBands = MBH.searchForBandByShowName(showName);
-		if (!foundBands.isEmpty()) {
+		MarchingBand foundBand;
+		foundBand = MBH.searchForBandByShowName(showName);
+		if(foundBand != null) {
 			System.out.println("Found Results.");
-			for (MarchingBand M : foundBands) {
-				System.out.println(M.marchingBandDetails());
-				toEdit = M;
-			}
+			System.out.println(foundBand.marchingBandDetails());
 			System.out.println("1 : Update show name");
 			System.out.println("2 : Update number of movements");
 			System.out.println("3 : Update number of marchers");
@@ -112,14 +109,12 @@ public class startProgram {
 	public static void findABand() {
 		System.out.println("Enter the show name");
 		String showName = input.nextLine();
-		List <MarchingBand> foundBands;
-		foundBands = MBH.searchForBandByShowName(showName);
-		if(!foundBands.isEmpty()) {
+		MarchingBand foundBand;
+		foundBand = MBH.searchForBandByShowName(showName);
+		if(foundBand != null) {
 			System.out.println("The results: ");
-			for (MarchingBand M: foundBands) {
-				System.out.print(M.marchingBandDetails());
+				System.out.print(foundBand.marchingBandDetails());
 			}
-		}
 		else {
 			System.out.println("No results found");
 		}

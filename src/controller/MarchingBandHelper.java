@@ -14,7 +14,7 @@ import model.MarchingBand;
  * Sep 14, 2021
  */
 public class MarchingBandHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("week3Assessment");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Week5Assessment");
 	public void insertBand (MarchingBand MB) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
@@ -38,12 +38,17 @@ public class MarchingBandHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-	public List<MarchingBand> searchForBandByShowName (String showNameToFind) {
+	public MarchingBand searchForBandByShowName (String showNameToFind) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<MarchingBand>typedQuery = em.createQuery("select MB from MarchingBand MB where MB.showName = :selectedShowName", MarchingBand.class);
-		typedQuery.setParameter("selectedShowName", showNameToFind);
-		List<MarchingBand> found = typedQuery.getResultList();
+		MarchingBand found = em.find(MarchingBand.class, showNameToFind);
+		em.close();
+		return found;
+	}
+	public MarchingBand searchForBandById (int idToFind) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		MarchingBand found = em.find(MarchingBand.class, idToFind);
 		em.close();
 		return found;
 	}

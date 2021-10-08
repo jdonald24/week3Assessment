@@ -14,7 +14,11 @@ import model.MarchingBand;
  * Sep 14, 2021
  */
 public class MarchingBandHelper {
+<<<<<<< HEAD
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Week5Assessment2");
+=======
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Week5Assessment");
+>>>>>>> b241feb19e48322931443cb55f4f23e5a15f4413
 	public void insertBand (MarchingBand MB) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
